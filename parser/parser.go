@@ -14,7 +14,7 @@ type Parser struct {
 }
 
 // NewParser initializes a new Parser.
-func NewParser(lexer *tk.Lexer) *Parser {
+func newParser(lexer *tk.Lexer) *Parser {
 	return &Parser{lexer: lexer, pos: 0}
 }
 
@@ -143,7 +143,7 @@ func (p *Parser) parse() float64 {
 
 func Calculator(expression string) float64 {
 	lexer := tk.NewLexer(expression)
-	parser := NewParser(lexer)
+	parser := newParser(lexer)
 	result := parser.parse()
 	//fmt.Printf("Result: %f\n", result)
 	return result
